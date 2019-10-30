@@ -26,7 +26,7 @@ let appData = {
 
 function chooseExpenses () {
 
-    let num = +prompt('Сколько статей расходов у вас в месяц (введите число)','5');
+    let num = +prompt('Сколько статей расходов у вас в месяц (введите число)','1');
 
     for (let i = 0; i < num; i++){
 
@@ -94,4 +94,25 @@ function checkSavings() {
 }
 
 checkSavings();
+
+function chooseOptExpenses() {
+
+    let choseOpt = confirm('У вас есть необязтельные расходы?');
+
+    if (choseOpt === true){
+        let choseOptNum = +prompt('Какое колличество необязательных рассходов у вас есть? (укажите число) ','1');
+        for (let i = 0; i < choseOptNum; i++ ) {
+            let questionOpt = prompt('Укажите статью необязательных рассходов №' + (i + 1));
+            appData.optionalExpenses[i] = questionOpt;
+        }
+    }
+
+
+
+
+}
+
+chooseOptExpenses();
+
+console.log(appData.optionalExpenses);
 
